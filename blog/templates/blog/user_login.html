@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block main %}
+<form method="post">
+    {% csrf_token %}
+
+    {% include 'components/_form_errors.html' %}
+
+    <label for="{{ form.username.id_for_label }}">
+        Foydalanuvchi ismi
+    </label>
+    {{ form.username }}
+
+    <label for="{{ form.password.id_for_label }}">
+        Parol
+    </label>
+    {{ form.password }}
+
+    <button class="btn btn-primary">Kirish</button>
+</form>
+{% endblock main %}

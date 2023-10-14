@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+
+
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+
+
+{% block main %}
+<h1 class="mt-5 mb-5">Maqolalar ro'yxati CLASSDAN</h1>
+
+<div class="d-flex justify-content-between">
+    <div class="col-3">
+        {% get_all_categories as categories %}
+        {% include 'blog/components/_sidebar.html' %}
+    </div>
+
+    <div class="col-8">
+        {% for article in articles %}
+        {% include 'blog/components/_card.html' %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock main %}
